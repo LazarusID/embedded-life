@@ -23,3 +23,11 @@ From the docker command line:
 ## Writing Tests
 
 The idea of Test Driven Development is to write a failing test, then enough coee, and no more, to make the test pass.  This project uses the [check](https://libcheck.github.io/check/) library.  The website contains both documentation and extensive examples of how to use it.
+
+## Preferred Setup
+
+The original intent of this repo is that you will start a docker container in this folder.  This gives you a shell in the Linux container from which to compile and build.
+
+Another terminal window is open for managing git.
+
+Start your favorite editor in the folder, with the appropriate plugins for C++ programming.  I'm using VS Code, but Atom, vi and emacs are also viable contenders.
