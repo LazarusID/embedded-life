@@ -10,7 +10,9 @@ FILE(GLOB TEST_SRC
 	"*.h")
 
 SET(UNIT_UNDER_TEST_SRC
-	../life/rules.cpp)
+	../life/rules.cpp
+	../life/board.cpp
+	)
 
 SET(TEST_NAME ${PROJECT_NAME}-test)
 ADD_EXECUTABLE(${TEST_NAME}
