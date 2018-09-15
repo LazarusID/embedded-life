@@ -1,1 +1,4 @@
 theme: jekyll-theme-slate
+title: Advanced Test Driven Development with Mocking
+description: An introduction to using and creating test doubles for testing complex systems.
+show_downloads: true
