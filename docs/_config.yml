@@ -9,8 +9,8 @@ permalink:        pretty
 title:            Mocking
 tagline:          'Test Doubles for Fun and Profit'
 description:      'Going deeper with Test Driven Development using test doubles to test complex interactions.'
-url:              https://lazarusid.github.io/embedded-life/
-baseurl:          https://lazarusid.github.io/embedded-life/
+url:              https://lazarusid.github.io/
+baseurl:          /embedded-life/
 
 author:
   name:           'Clay Dowling'
