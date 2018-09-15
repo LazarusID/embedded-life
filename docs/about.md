@@ -3,28 +3,12 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+This website and repository are intended to be used for a full-day workshop on creating and using Test Doubles.
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+If you don't know what a test double is, imagine software where you want to test the interaction between two components, but it isn't practical to set those components up on your workstation in the way you need for an automated test.  You can use a *Test Double* to stand in for the real object in your test.
 
-There are currently two themes built on Poole:
+This workshop builds software to drive an art project which will display Conway's Game of Life on an LED panel.  Your workstation doesn't have the same hardware as the microcontroller which is used in the art project, and even if you could rig it, the led panel draws more power than your PC can safely provide.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+What we do have is a well tested API which interacts with the hardware.  Because we trust the API to behave as expected, we can create a *Test Double* for that API, much like an actor would have a stunt double for scenes where their character needs to do things that the actor can't.
 
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+Using the test doubles, we will be able to prove that our software does the right thing with the hardware API.  This will reduce our programming time from first draft to working implementation by quite a bit.
