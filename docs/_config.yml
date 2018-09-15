@@ -1,4 +1,26 @@
-theme: jekyll-theme-slate
-title: Advanced Test Driven Development with Mocking
-description: An introduction to using and creating test doubles for testing complex systems.
-show_downloads: true
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            Mocking
+tagline:          'Test Doubles for Fun and Profit'
+description:      'Going deeper with Test Driven Development using test doubles to test complex interactions.'
+url:              https://lazarusid.github.io/embedded-life/
+baseurl:          https://lazarusid.github.io/embedded-life/
+
+author:
+  name:           'Clay Dowling'
+  url:            http://claydowling.com
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/LazarusID/embedded-life
