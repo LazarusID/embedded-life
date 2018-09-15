@@ -6,7 +6,7 @@ layout: page
 ## Required Software
 
 - Docker
-- A programming editor such as [VS Code](https://code.visualstudio.com/) or (Atom)[https://atom.io/]
+- A programming editor such as [VS Code](https://code.visualstudio.com/) or [Atom](https://atom.io/)
 - C++ plugins for your editor.
   - For *VS Code* I use the following:
     - **C/C++** from Microsoft.
