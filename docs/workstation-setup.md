@@ -31,12 +31,11 @@ If you don't have a GitHub account or don't use SSH keys:
 
 ### The Docker Container
 
-- Build the *life* image (from `build-devimage.bat`)
+Build the *life* image (from `build-devimage.bat`)
 
     docker build -t life .
 
-- Create the *lifedev* container (from `launch-devcontainer.bat`)
-
+Create the *lifedev* container (from `launch-devcontainer.bat`)
     docker run --name lifedev -v .:/life -t -i life /bin/bash
 
 If your laptop goes to sleep, your docker container will likely be suspended.  You can restart it with
