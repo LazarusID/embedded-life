@@ -1,7 +1,7 @@
 #include "board.h"
 
 class BoardImpl {
-public:
+ public:
   unsigned int current_state = 0;
   unsigned int future_state = 1;
 
@@ -23,18 +23,30 @@ void BoardImpl::setAlive(unsigned int x, unsigned int y, bool alive) {
 }
 
 unsigned int BoardImpl::neighbors(unsigned int x, unsigned int y) {
-  int count = 0;
-  int minx, maxx, miny, maxy;
+  unsigned int count = 0;
+  unsigned int minx, maxx, miny, maxy;
 
-  minx = x - 1;
-  miny = y - 1;
+  if (0 == x)
+    minx = 0;
+  else
+    minx = x - 1;
+
+  if (0 == y)
+    miny = 0;
+  else
+    miny = y - 1;
+
   maxx = x + 1;
   maxy = y + 1;
 
+  if (Board::X_SIZE <= maxx) maxx == Board::X_SIZE - 1;
+  if (Board::Y_SIZE <= maxy) maxy == Board::Y_SIZE - 1;
+
   for (unsigned int i = minx; i <= maxx; ++i) {
     for (unsigned int j = miny; j <= maxy; ++j) {
-      if (getAlive(i, j))
-        ++count;
+      if (i != x || j != y) {
+        if (getAlive(i, j)) ++count;
+      }
     }
   }
 

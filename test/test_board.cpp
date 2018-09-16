@@ -5,7 +5,7 @@
 using namespace ::testing;
 
 class testBoard : public testing::Test {
- public:
+public:
   Board board;
 };
 
@@ -34,4 +34,26 @@ TEST_F(testBoard, neighbors_oneSetAfterNewCycle_returnsOne) {
   board.newCycle();
 
   ASSERT_EQ(1, board.neighbors(2, 2));
+}
+
+TEST_F(testBoard, neighbors_liveCellOneSete_returnsOne) {
+  board.setAlive(2, 1, true);
+  board.setAlive(2, 2, true);
+  board.newCycle();
+
+  ASSERT_EQ(1, board.neighbors(2, 2));
+}
+
+TEST_F(testBoard, neighbors_oneSetAtZeroZero_returnsOne) {
+  board.setAlive(1, 1, true);
+  board.newCycle();
+
+  ASSERT_EQ(1, board.neighbors(0, 0));
+}
+
+TEST_F(testBoard, neighbors_oneSetAtMax_returnsOne) {
+  board.setAlive(Board::X_SIZE - 2, Board::Y_SIZE - 2, true);
+  board.newCycle();
+
+  ASSERT_EQ(1, board.neighbors(Board::X_SIZE - 1, Board::Y_SIZE - 1));
 }
