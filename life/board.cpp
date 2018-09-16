@@ -5,7 +5,7 @@ public:
   unsigned int current_state = 0;
   unsigned int future_state = 1;
 
-  bool cells[2][Board::X_MAX][Board::Y_MAX];
+  bool cells[2][Board::X_SIZE][Board::Y_SIZE];
 
   bool getAlive(unsigned int x, unsigned int y);
   void setAlive(unsigned int x, unsigned int y, bool alive);
@@ -26,10 +26,19 @@ unsigned int BoardImpl::neighbors(unsigned int x, unsigned int y) {
   int count = 0;
   int minx, maxx, miny, maxy;
 
-  minx = x == 0 ? 0 : x - 1;
-  miny = y == 0 ? 0 : y - 1;
-  maxx = x == Board::X_MAX - 1 ? Board::X_MAX - 1 : x + 1;
-  maxy = y == Board::Y_MAX - 1 ? Board::Y_MAX - 1 : y + 1;
+  minx = x - 1;
+  miny = y - 1;
+  maxx = x + 1;
+  maxy = y + 1;
+
+  for (unsigned int i = minx; i <= maxx; ++i) {
+    for (unsigned int j = miny; j <= maxy; ++j) {
+      if (getAlive(i, j))
+        ++count;
+    }
+  }
+
+  return count;
 }
 
 void BoardImpl::newCycle(void) {
