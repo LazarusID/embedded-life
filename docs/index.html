@@ -3,8 +3,13 @@ layout: default
 title: Home
 ---
 
-{{ site.description }}
+This mocking workshop we'll have a new take on the code retreat workshop's old friend, Conway's Game of Life. But
+instead of just write a rules engine, we're going to implement a physical board, with LEDs that light up to show if a
+cell is alive or dead.
 
+Because our workstations don't have the same hardware that our fancy art installation Life board does, we need to learn
+some new techniques to make our code work with this board. In this workshop we'll learn how to test our logic against
+hardware that we don't have.
 
 <h2>Latest Developments</h2>
 <div class="posts">
@@ -25,17 +30,17 @@ title: Home
 
 <div class="pagination">
   {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
+  <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
   {% else %}
-    <span class="pagination-item older">Older</span>
+  <span class="pagination-item older">Older</span>
   {% endif %}
   {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
+  {% if paginator.page == 2 %}
+  <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
   {% else %}
-    <span class="pagination-item newer">Newer</span>
+  <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
+  {% endif %}
+  {% else %}
+  <span class="pagination-item newer">Newer</span>
   {% endif %}
 </div>
