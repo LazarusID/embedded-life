@@ -44,16 +44,32 @@ TEST_F(testBoard, neighbors_liveCellOneSete_returnsOne) {
   ASSERT_EQ(1, board.neighbors(2, 2));
 }
 
-TEST_F(testBoard, neighbors_oneSetAtZeroZero_returnsOne) {
+TEST_F(testBoard, neighbors_SurroundedAtZeroZero_returnsThree) {
   board.setAlive(1, 1, true);
+  board.setAlive(0, 1, true);
+  board.setAlive(1, 0, true);
   board.newCycle();
 
-  ASSERT_EQ(1, board.neighbors(0, 0));
+  ASSERT_EQ(3, board.neighbors(0, 0));
 }
 
 TEST_F(testBoard, neighbors_oneSetAtMax_returnsOne) {
-  board.setAlive(Board::X_SIZE - 2, Board::Y_SIZE - 2, true);
+  board.setAlive(62, 62, true);
   board.newCycle();
 
-  ASSERT_EQ(1, board.neighbors(Board::X_SIZE - 1, Board::Y_SIZE - 1));
+  ASSERT_EQ(1, board.neighbors(63, 63));
+}
+
+TEST_F(testBoard, neighbors_whenSurrounded_returnsEight) {
+	board.setAlive(31, 31, true);
+	board.setAlive(32, 31, true);
+	board.setAlive(33, 31, true);
+	board.setAlive(31, 32, true);
+	board.setAlive(33, 32, true);
+	board.setAlive(31, 33, true);
+	board.setAlive(32, 33, true);
+	board.setAlive(33, 33, true);
+	board.newCycle();
+
+	ASSERT_EQ(8, board.neighbors(32, 32));
 }
