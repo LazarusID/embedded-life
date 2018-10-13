@@ -12,6 +12,7 @@ FILE(GLOB TEST_SRC
 SET(UNIT_UNDER_TEST_SRC
 	../life/rules.cpp
 	../life/board.cpp
+	../life/game.cpp
 	)
 
 SET(TEST_NAME ${PROJECT_NAME}-test)
@@ -22,7 +23,8 @@ ADD_EXECUTABLE(${TEST_NAME}
 SET_PROPERTY(TARGET ${TEST_NAME} PROPERTY CXX_STANDARD 17)
 TARGET_LINK_LIBRARIES(${TEST_NAME}
 	gtest
-	gtest_main)
+	gtest_main
+	mock)
 
 TARGET_COMPILE_FEATURES(${TEST_NAME} PUBLIC cxx_override)
 ADD_TEST(NAME UnitTest COMMAND ${TEST_NAME})
