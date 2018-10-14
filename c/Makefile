@@ -1,0 +1,8 @@
+RGBPATH=$(PWD)/rpi-rgb-led-matrixx
+RGBINCLUDEPATH=$(RGBPATH)/include
+RGBLIBPATH=$(RGBPATH)/lib
+
+.PHONY: test
+
+test:
+	make -C test RGBINCLUDEPATH=$(RGBINCLUDEPATH) RGBLIBPATH=$(RGBLIBPATH)
