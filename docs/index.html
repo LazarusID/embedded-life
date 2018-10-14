@@ -1,0 +1,51 @@
+---
+layout: default
+title: Home
+---
+
+<h1>Mocking Life</h1>
+
+<p>This mocking workshop we'll have a new take on the code retreat
+workshop's old friend, <a
+	href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's
+	Game of Life</a>. But
+  instead of just writing a rules engine, we're going to implement a physical board, with LEDs that light up to show if
+  a cell is alive or dead.</p>
+
+<p>Because our workstations don't have the same hardware that our fancy art installation Life board does, we need to
+  learn some new techniques to make our code work with this board. In this workshop we'll learn how to test our logic
+  against hardware that we don't have.</p>
+
+<h2>Latest Developments</h2>
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post">
+    <h3 class="post-title">
+      <a href="{{ post.url | absolute_url }}">
+        {{ post.title }}
+      </a>
+    </h3>
+
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+
+    {{ post.content }}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if paginator.next_page %}
+  <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
+  {% else %}
+  <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+  {% if paginator.page == 2 %}
+  <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
+  {% else %}
+  <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
+  {% endif %}
+  {% else %}
+  <span class="pagination-item newer">Newer</span>
+  {% endif %}
+</div>
