@@ -4,5 +4,6 @@
 #include <check.h>
 
 Suite *suite_rules();
+Suite *suite_board();
 
 #endif
