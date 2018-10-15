@@ -36,3 +36,19 @@ The original intent of this repo is that you will start a docker container in th
 Another terminal window is open for managing git.
 
 Start your favorite editor in the folder, with the appropriate plugins for C++ programming.  I'm using VS Code, but Atom, vi and emacs are also viable contenders.
+
+
+# Using Branches
+
+To facilitate using this in a workshop, there are three branches provided:
+
+1. `master` contains a valid starting environment for any of the supported
+   languages.  It has just enough content to start coding Conway's Game of
+   Life, with a failing test that needs to be fixed.
+1. `solution` contains a working implementation of Conway's Game of Life.  It
+   includes a working set of rules and a board implementation.  At this point
+   they don't contain a final program which implements the repeating life
+   cycles of the game.
+1. `displaytests` contains a shell of the game implementation, as well as a
+   first passing test and an example mock.  Content about programming mocks
+   should start here.
