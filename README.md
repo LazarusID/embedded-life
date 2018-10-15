@@ -2,8 +2,13 @@
 
 This repo was designed for a deep-dive code retreat about advanced testing and mocking.  To use this, you'll need the following installed on your system:
 
-- [Docker](http://docker.com) to install a working Linux development environment on your workstation.  If you are already running on a Linux or OS X system, you will instead need to install a working C/C++ development environment and the *check* testing framework.
-- [Arduino](http://arduino.cc) to get necessary headers for testing, and to build a final executable if you are going to actually run on embedded hardware.
+- [Docker](http://docker.com) to install a working Linux development
+  environment on your workstation.
+
+## More Details
+
+More information about the usage is available from the repo's [website](https://lazarusid.github.io/embedded-life/).
+
 
 ## Setting Up the Docker Container
 
