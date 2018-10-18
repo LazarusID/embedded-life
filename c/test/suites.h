@@ -5,5 +5,6 @@
 
 Suite *suite_rules();
 Suite *suite_board();
+Suite *suite_game();
 
 #endif

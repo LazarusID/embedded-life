@@ -6,7 +6,7 @@ SRCS=$(wildcard *.c)
 BASES=$(basename $(SRCS))
 OBJS=$(addsuffix .o, $(BASES))
 
-SUT=rules.o board.o
+SUT=rules.o board.o game.o
 
 check: life-test
 	./life-test
