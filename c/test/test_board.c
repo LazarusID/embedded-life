@@ -27,12 +27,34 @@ START_TEST(getCurrentCell_afterSetOutsideBoard_returnsFalse) {
 }
 END_TEST
 
+START_TEST(getCurrentNeighbors_deadCellWithOneNeighbor_returnsOne) {
+  board_setFutureCell(1, 1, false);
+  board_setFutureCell(0, 0, true);
+  board_makeFutureStateCurrent();
+  ck_assert_int_eq(1, board_currentNeighbors(1, 1));
+}
+END_TEST
+
+START_TEST(getCurrentNeighbors_liveCellSurroundedOnAllSides_returnsEight) {
+  for (int i = 0; i < 3; ++i) {
+    for (int j = 0; j < 3; ++j) {
+      board_setFutureCell(i, j, true);
+    }
+  }
+  board_makeFutureStateCurrent();
+  ck_assert_int_eq(8, board_currentNeighbors(1, 1));
+}
+END_TEST
+
 TCase *tcase_board() {
   TCase *tc = tcase_create("board");
   tcase_add_test(tc,
                  getCurrentCell_afterBoardSetAndMakeFutureCurrent_returnsTrue);
   tcase_add_test(tc, getCurrentCell_afterBoardSet_returnsFalse);
   tcase_add_test(tc, getCurrentCell_afterSetOutsideBoard_returnsFalse);
+  tcase_add_test(tc, getCurrentNeighbors_deadCellWithOneNeighbor_returnsOne);
+  tcase_add_test(tc,
+                 getCurrentNeighbors_liveCellSurroundedOnAllSides_returnsEight);
   return tc;
 }
 

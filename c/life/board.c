@@ -20,8 +20,12 @@ bool board_getCurrentCell(unsigned int x, unsigned int y) {
   if (!cells_initialized) {
     initialize_cells();
   }
+  if (x >= BOARD_X || y >= BOARD_Y) {
+    return false;
+  }
   return cell[current_generation][x][y];
 }
+
 void board_setFutureCell(unsigned int x, unsigned int y, bool alive) {
   if (!cells_initialized) {
     initialize_cells();
@@ -32,6 +36,7 @@ void board_setFutureCell(unsigned int x, unsigned int y, bool alive) {
     return;
   cell[future_generation][x][y] = alive;
 }
+
 void board_makeFutureStateCurrent() {
   if (0 == current_generation) {
     current_generation = 1;
@@ -40,4 +45,18 @@ void board_makeFutureStateCurrent() {
     current_generation = 0;
     future_generation = 1;
   }
+}
+
+int board_currentNeighbors(unsigned int x, unsigned int y) {
+  int count = 0;
+
+  for (int i = x - 1; i <= x + 1; ++i) {
+    for (int j = y - 1; j <= y + 1; ++j) {
+      if (x != i || y != j) {
+        count += board_getCurrentCell(i, j);
+      }
+    }
+  }
+
+  return count;
 }

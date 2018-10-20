@@ -9,5 +9,6 @@
 bool board_getCurrentCell(unsigned int x, unsigned int y);
 void board_setFutureCell(unsigned int x, unsigned int y, bool alive);
 void board_makeFutureStateCurrent();
+int board_currentNeighbors(unsigned int x, unsigned int y);
 
 #endif
