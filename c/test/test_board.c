@@ -1,0 +1,65 @@
+#include "board.h"
+
+#include <check.h>
+
+START_TEST(getCurrentCell_afterBoardSetAndMakeFutureCurrent_returnsTrue) {
+  // Arrange
+  board_setFutureCell(1, 1, true);
+
+  // Act
+  board_makeFutureStateCurrent();
+
+  // Assert
+  ck_assert_int_eq(true, board_getCurrentCell(1, 1));
+}
+END_TEST
+
+START_TEST(getCurrentCell_afterBoardSet_returnsFalse) {
+  board_setFutureCell(1, 1, true);
+  ck_assert_int_eq(false, board_getCurrentCell(1, 1));
+}
+END_TEST
+
+START_TEST(getCurrentCell_afterSetOutsideBoard_returnsFalse) {
+  board_setFutureCell(BOARD_X, BOARD_Y, true);
+  board_makeFutureStateCurrent();
+  ck_assert_int_eq(false, board_getCurrentCell(BOARD_X, BOARD_Y));
+}
+END_TEST
+
+START_TEST(getCurrentNeighbors_deadCellWithOneNeighbor_returnsOne) {
+  board_setFutureCell(1, 1, false);
+  board_setFutureCell(0, 0, true);
+  board_makeFutureStateCurrent();
+  ck_assert_int_eq(1, board_currentNeighbors(1, 1));
+}
+END_TEST
+
+START_TEST(getCurrentNeighbors_liveCellSurroundedOnAllSides_returnsEight) {
+  for (int i = 0; i < 3; ++i) {
+    for (int j = 0; j < 3; ++j) {
+      board_setFutureCell(i, j, true);
+    }
+  }
+  board_makeFutureStateCurrent();
+  ck_assert_int_eq(8, board_currentNeighbors(1, 1));
+}
+END_TEST
+
+TCase *tcase_board() {
+  TCase *tc = tcase_create("board");
+  tcase_add_test(tc,
+                 getCurrentCell_afterBoardSetAndMakeFutureCurrent_returnsTrue);
+  tcase_add_test(tc, getCurrentCell_afterBoardSet_returnsFalse);
+  tcase_add_test(tc, getCurrentCell_afterSetOutsideBoard_returnsFalse);
+  tcase_add_test(tc, getCurrentNeighbors_deadCellWithOneNeighbor_returnsOne);
+  tcase_add_test(tc,
+                 getCurrentNeighbors_liveCellSurroundedOnAllSides_returnsEight);
+  return tc;
+}
+
+Suite *suite_board() {
+  Suite *s = suite_create("board");
+  suite_add_tcase(s, tcase_board());
+  return s;
+}
