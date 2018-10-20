@@ -2,12 +2,15 @@
 #include "board.h"
 #include "rules.h"
 
+#include <led-matrix-c.h>
+
 void game_run(int argc, char **argv) {
   // Do Nothing
 }
 
 void game_init(int argc, char **argv) {
-  // Do Nothing
+  struct RGBLedMatrixOptions options;
+  led_matrix_create_from_options(&options, &argc, &argv);
 }
 
 void game_loop(void) {

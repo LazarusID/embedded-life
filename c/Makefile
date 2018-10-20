@@ -1,4 +1,4 @@
-RGBPATH=$(PWD)/rpi-rgb-led-matrix
+RGBPATH=$(realpath $(PWD)/../rpi-rgb-led-matrix)
 RGBINCLUDEPATH=$(RGBPATH)/include
 RGBLIBPATH=$(RGBPATH)/lib
 
