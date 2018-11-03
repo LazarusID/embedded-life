@@ -2,8 +2,13 @@
 
 This repo was designed for a deep-dive code retreat about advanced testing and mocking.  To use this, you'll need the following installed on your system:
 
-- [Docker](http://docker.com) to install a working Linux development environment on your workstation.  If you are already running on a Linux or OS X system, you will instead need to install a working C/C++ development environment and the *check* testing framework.
-- [Arduino](http://arduino.cc) to get necessary headers for testing, and to build a final executable if you are going to actually run on embedded hardware.
+- [Docker](http://docker.com) to install a working Linux development
+  environment on your workstation.
+
+## More Details
+
+More information about the usage is available from the repo's [website](https://lazarusid.github.io/embedded-life/).
+
 
 ## Setting Up the Docker Container
 
@@ -31,3 +36,19 @@ The original intent of this repo is that you will start a docker container in th
 Another terminal window is open for managing git.
 
 Start your favorite editor in the folder, with the appropriate plugins for C++ programming.  I'm using VS Code, but Atom, vi and emacs are also viable contenders.
+
+
+# Using Branches
+
+To facilitate using this in a workshop, there are three branches provided:
+
+1. *master* contains a valid starting environment for any of the supported
+   languages.  It has just enough content to start coding Conway's Game of
+   Life, with a failing test that needs to be fixed.
+1. *solution* contains a working implementation of Conway's Game of Life.  It
+   includes a working set of rules and a board implementation.  At this point
+   they don't contain a final program which implements the repeating life
+   cycles of the game.
+1. *displaytests* contains a shell of the game implementation, as well as a
+   first passing test and an example mock.  Content about programming mocks
+   should start here.
